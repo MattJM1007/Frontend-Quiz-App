@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js" defer></script>
+  <script src="./index.js" defer></script>
+  
+  <title>Frontend Mentor | Frontend quiz app</title>
+</head>
+<body>
+  <header class="toggle-container">
+    <div class="current-quiz-header hidden">
+      <img src="./assets/images/icon-accessibility.svg" alt="icon" id="quiz-icon" class="icon">
+      <span class="quiz-title">Accessibility</span>
+    </div>
+
+    <div class="light-dark-container">
+      <img src="./assets/images/icon-sun-light.svg" alt="sun" id="light-sun-icon">
+      <img src="./assets/images/icon-sun-dark.svg" alt="sun" id="dark-sun-icon" class="hidden">
+      <label for="display-toggle" class="switch">
+        <input type="checkbox" id="display-toggle" checked>
+        <span class="slider"></span>
+      </label>
+      <img src="./assets/images/icon-moon-light.svg" alt="moon" id="light-moon-icon">
+      <img src="./assets/images/icon-moon-dark.svg" alt="moon" id="dark-moon-icon" class="hidden">  
+    </div>
+  </header>
+
+  <main class="quiz-menu">
+    <!-- Quiz menu start -->
+    <section class="main-menu page-container ">
+      <div class="menu-headings">
+        <h1 class="welcome-msg">
+        Welcome to the <strong>Frontend Quiz!</strong></h1>
+        <h2 class="subtitle"><em>Pick a subject to get started.</em></h2>
+      </div>
+      
+  
+      <div class="menu-options">
+        <button class="options" id="HTML">
+          <img src="./assets/images/icon-html.svg" alt="html icon" class="HTML icon">
+          <h2 class="button-title">HTML</h2>
+        </button>
+  
+        <button class="options" id="CSS">
+          <img src="./assets/images/icon-css.svg" alt="css icon" class="CSS icon">
+          <h2 class="button-title">CSS</h2>
+        </button>
+  
+        <button class="options" id="JavaScript">
+          <img src="./assets/images/icon-js.svg" alt="javascript icon" class="JavaScript icon">
+          <h2 class="button-title">Javascript</h2>
+        </button>
+  
+        <button class="options" id="Accessibility">
+          <img src="./assets/images/icon-accessibility.svg" alt="accessibility icon" class="Accessibility icon">
+          <h2 class="button-title">Accessibility</h2>
+        </button>
+      </div>
+    </section>
+    <!-- Quiz menu end -->
+
+    <!-- Quiz question start -->
+    <section class="question-page page-container hidden">
+      <div class="questions-container">
+        <h2 class="question-count"><em>Question <span class="current-question">1</span> of 10</em></h2>
+        <p class="question">Which of these color contrast ratios defines the minimum WCAG 2.1 Level AA requirement for normal text?</p>
+        <label for="quiz-progress" hidden>Questions progress</label>
+        <progress id="quiz-progress" value="1" max="10"></progress>
+      </div>
+
+      <div>
+        <div class="answers-container">
+          <button class="options" id="first-option">
+            <span class="option-icon">A</span>
+            <p class="answer-choice">4.5 : 1</p>
+            <img src="./assets/images/icon-correct.svg" alt="green checkmark" class="result-icon">
+          </button>
+
+          <button class="options" id="second-option">
+            <span class="option-icon">B</span>
+            <p class="answer-choice">3 : 1</p>
+            <img src="./assets/images/icon-correct.svg" alt="green checkmark" class="result-icon">
+          </button>
+
+          <button class="options" id="third-option">
+            <span class="option-icon">C</span>
+            <p class="answer-choice">2.5 : 1</p>
+            <img src="./assets/images/icon-incorrect.svg" alt="red x" class="result-icon">
+          </button>
+
+          <button class="options" id="fourth-option">
+            <span class="option-icon">D</span>
+            <p class="answer-choice"> 5 : 1</p>
+            <img src="./assets/images/icon-correct.svg" alt="green checkmark" class="result-icon">
+          </button>
+        </div>
+
+        <button id="submit-button">Submit Answer</button>
+        <button id="next-button" class="hidden">Next Question</button>
+
+        <div class="error-container hidden">
+          <img src="./assets/images/icon-incorrect.svg" alt="" class="error-icon">
+          <p class="error-message">Please select an answer</p>
+        </div>
+      </div>
+    </section>
+    <!-- Quiz question end -->
+
+    <!-- Quiz completed start -->
+    <section class="quiz-complete-container page-container hidden">
+      <div class="complete-left">
+        <h2 class="quiz-completed">Quiz completed</h2>
+        <h2 class="you-scored">You Scored...</h2>
+      </div>
+
+      <div class=".complete-right">
+        <div class="score-container">
+          <div class="current-quiz-result">
+            <img src="./assets/images/icon-accessibility.svg" alt="icon" id="quiz-icon-result"
+            class="Accessibility icon">
+            <span class="quiz-title">CSS</span>
+          </div>
+          <p id="quiz-score">8</p>
+          <p class="total-questions">out of 10</p>
+        </div>
+        <button id="play-again">Play Again</button>
+      </div>
+    </section>
+    <!-- Quiz completed end -->
+  </main>
+</body>
+</html>
