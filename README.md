@@ -1,6 +1,6 @@
 # Frontend Mentor - Frontend quiz app solution
 
-This is a solution to the [Frontend quiz app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/frontend-quiz-app-BE7xkzXQnU). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
+This is a solution to the [Frontend quiz app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/frontend-quiz-app-BE7xkzXQnU). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
 ## Table of contents
 
@@ -15,7 +15,6 @@ This is a solution to the [Frontend quiz app challenge on Frontend Mentor](https
   - [Useful resources](#useful-resources)
 - [Author](#author)
 - [Acknowledgments](#acknowledgments)
-
 
 ## Overview
 
@@ -39,7 +38,6 @@ Users should be able to:
 
 ![](./screenshot.png)
 
-
 ### Links
 
 - Solution URL: [Add solution URL here](https://github.com/MattJM1007/Frontend-Quiz-App)
@@ -62,7 +60,6 @@ How to use JQuery, work with json, toggle light/dark modes, display correct/inco
 
 Want to get better with Jquerry and maybe add more to this app later on down the line!
 
-
 ### Useful resources
 
 - [CSS Toggle Switch](https://www.w3schools.com/howto/howto_css_switch.asp) - This helped me make the toggle switch for light and dark mode
@@ -70,4 +67,3 @@ Want to get better with Jquerry and maybe add more to this app later on down the
 ## Author
 
 - Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/MattJM1007)
-
