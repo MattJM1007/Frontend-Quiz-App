@@ -1,0 +1,12 @@
+*.sketch
+*.fig
+*.xd
+.prettierignore
+*_old*
+instructions.md
+/Figma*
+/design  
+.DS_Store
+node_modules/
+.env
+practice files/
