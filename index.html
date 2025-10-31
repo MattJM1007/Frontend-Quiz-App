@@ -5,132 +5,130 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png" />
+
     <link rel="stylesheet" href="style.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js" defer></script>
+
     <script src="./index.js" defer></script>
 
     <title>Frontend Mentor | Frontend quiz app</title>
   </head>
-  <body>
-    <header class="toggle-container">
-      <div class="current-quiz-header hidden">
-        <img src="./assets/images/icon-accessibility.svg" alt="icon" id="quiz-icon" class="icon" />
-        <span class="quiz-title">Accessibility</span>
+  <body data-theme="light">
+    <header class="primary-header flex-center">
+      <div class="current-quiz">
+        <img src="" alt="" class="icon" />
+        <span class="title"></span>
       </div>
 
-      <div class="light-dark-container">
-        <img src="./assets/images/icon-sun-light.svg" alt="sun" id="light-sun-icon" />
-        <img src="./assets/images/icon-sun-dark.svg" alt="sun" id="dark-sun-icon" class="hidden" />
-        <label for="display-toggle" class="switch">
-          <input type="checkbox" id="display-toggle" checked />
+      <div class="theme-toggle-container flex-center">
+        <img src="./assets/images/icon-sun-dark.svg" alt="light mode" class="icon-sun" />
+        <label class="switch" for="toggle-button">
+          <input type="checkbox" id="toggle-button" />
           <span class="slider"></span>
         </label>
-        <img src="./assets/images/icon-moon-light.svg" alt="moon" id="light-moon-icon" />
-        <img src="./assets/images/icon-moon-dark.svg" alt="moon" id="dark-moon-icon" class="hidden" />
+        <img src="./assets/images/icon-moon-dark.svg" alt="dark mode" class="icon-moon" />
       </div>
     </header>
 
-    <main class="quiz-menu">
-      <!-- Quiz menu start -->
-      <section class="main-menu page-container">
-        <div class="menu-headings">
-          <h1 class="welcome-msg">Welcome to the <strong>Frontend Quiz!</strong></h1>
-          <h2 class="subtitle"><em>Pick a subject to get started.</em></h2>
+    <main>
+      <section class="quiz-topics">
+        <div>
+          <h1 class="title">Welcome to the <span>Frontend Quiz</span></h1>
+          <p class="sub-title">Pick a subject to get started.</p>
         </div>
 
-        <div class="menu-options">
-          <button class="options" id="HTML">
-            <img src="./assets/images/icon-html.svg" alt="html icon" class="HTML icon" />
-            <span class="button-title">HTML</span>
+        <div class="options">
+          <button class="button flex-center" data-topic="HTML">
+            <img src="./assets/images/icon-html.svg" alt="" class="icon" />
+            <span class="button__text">HTML</span>
           </button>
 
-          <button class="options" id="CSS">
-            <img src="./assets/images/icon-css.svg" alt="css icon" class="CSS icon" />
-            <span class="button-title">CSS</span>
+          <button class="button flex-center" data-topic="CSS">
+            <img src="./assets/images/icon-css.svg" alt="" class="icon" />
+            <span class="button__text">CSS</span>
           </button>
 
-          <button class="options" id="JavaScript">
-            <img src="./assets/images/icon-js.svg" alt="javascript icon" class="JavaScript icon" />
-            <span class="button-title">Javascript</span>
+          <button class="button flex-center" data-topic="JavaScript">
+            <img src="./assets/images/icon-js.svg" alt="" class="icon" />
+            <span class="button__text">JavaScript</span>
           </button>
 
-          <button class="options" id="Accessibility">
-            <img src="./assets/images/icon-accessibility.svg" alt="accessibility icon" class="Accessibility icon" />
-            <span class="button-title">Accessibility</span>
+          <button class="button flex-center" data-topic="Accessibility">
+            <img src="./assets/images/icon-accessibility.svg" alt="" class="icon" />
+            <span class="button__text">Accessibility</span>
           </button>
         </div>
       </section>
-      <!-- Quiz menu end -->
 
-      <!-- Quiz question start -->
-      <section class="question-page page-container hidden">
-        <div class="questions-container">
-          <h2 class="question-count">
-            <em>Question <span class="current-question">1</span> of 10</em>
-          </h2>
-          <p class="question">Which of these color contrast ratios defines the minimum WCAG 2.1 Level AA requirement for normal text?</p>
-          <label for="quiz-progress" hidden>Questions progress</label>
-          <progress id="quiz-progress" value="1" max="10"></progress>
-        </div>
+      <section class="quiz-questions">
+        <h2 class="visually-hidden">Quiz questions</h2>
 
         <div>
-          <div class="answers-container">
-            <button class="options" id="first-option">
-              <span class="option-icon">A</span>
-              <span class="answer-choice">4.5 : 1</span>
-              <img src="./assets/images/icon-correct.svg" alt="green checkmark" class="result-icon" />
-            </button>
+          <p aria-live="polite">Question <span class="question-number">1</span> of <span class="total-questions">10</span></p>
 
-            <button class="options" id="second-option">
-              <span class="option-icon">B</span>
-              <span class="answer-choice">3 : 1</span>
-              <img src="./assets/images/icon-correct.svg" alt="green checkmark" class="result-icon" />
-            </button>
+          <p class="current-question">What does HTML stand for?</p>
 
-            <button class="options" id="third-option">
-              <span class="option-icon">C</span>
-              <span class="answer-choice">2.5 : 1</span>
-              <img src="./assets/images/icon-incorrect.svg" alt="red x" class="result-icon" />
-            </button>
-
-            <button class="options" id="fourth-option">
-              <span class="option-icon">D</span>
-              <span class="answer-choice"> 5 : 1</span>
-              <img src="./assets/images/icon-correct.svg" alt="green checkmark" class="result-icon" />
-            </button>
-          </div>
-
-          <button id="submit-button">Submit Answer</button>
-          <button id="next-button" class="hidden">Next Question</button>
-
-          <div class="error-container hidden">
-            <img src="./assets/images/icon-incorrect.svg" alt="" class="error-icon" />
-            <p class="error-message">Please select an answer</p>
+          <div class="progress-bar-container">
+            <div class="progress-bar"></div>
           </div>
         </div>
+
+        <form class="answer-choices">
+          <fieldset>
+            <legend class="visually-hidden">Answer Choices</legend>
+
+            <label class="button flex-center">
+              <input type="radio" name="answer-choice" id="choice-one" />
+              <span class="icon">A</span>
+              <span class="text">Hyper Trainer Marking Language</span>
+              <img src="./assets/images/icon-correct.svg" alt="" class="correct-icon" />
+              <img src="./assets/images/icon-incorrect.svg" alt="" class="incorrect-icon" />
+            </label>
+
+            <label class="button flex-center">
+              <input type="radio" name="answer-choice" id="choice-two" />
+              <span class="icon">A</span>
+              <span class="text">Hyper Trainer Marking Language</span>
+              <img src="./assets/images/icon-correct.svg" alt="" class="correct-icon" />
+              <img src="./assets/images/icon-incorrect.svg" alt="" class="incorrect-icon" />
+            </label>
+
+            <label class="button flex-center">
+              <input type="radio" name="answer-choice" id="choice-three" />
+              <span class="icon">A</span>
+              <span class="text">Hyper Trainer Marking Language</span>
+              <img src="./assets/images/icon-correct.svg" alt="" class="correct-icon" />
+              <img src="./assets/images/icon-incorrect.svg" alt="" class="incorrect-icon" />
+            </label>
+
+            <label class="button flex-center">
+              <input type="radio" name="answer-choice" id="choice-four" />
+              <span class="icon">A</span>
+              <span class="text">Hyper Trainer Marking Language</span>
+              <img src="./assets/images/icon-correct.svg" alt="" class="correct-icon" />
+              <img src="./assets/images/icon-incorrect.svg" alt="" class="incorrect-icon" />
+            </label>
+          </fieldset>
+
+          <input type="submit" value="Submit Answer" class="button" />
+          <p class="error flex-center" role="alert" aria-live="polite">Please select an answer</p>
+        </form>
       </section>
-      <!-- Quiz question end -->
 
-      <!-- Quiz completed start -->
-      <section class="quiz-complete-container page-container hidden">
-        <div class="complete-left">
-          <h2 class="quiz-completed">Quiz completed</h2>
-          <h2 class="you-scored">You Scored...</h2>
-        </div>
+      <section class="quiz-score">
+        <h2 class="title">Quiz Completed <span>You Scored...</span></h2>
 
-        <div class=".complete-right">
+        <div>
           <div class="score-container">
-            <div class="current-quiz-result">
-              <img src="./assets/images/icon-accessibility.svg" alt="icon" id="quiz-icon-result" class="Accessibility icon" />
-              <span class="quiz-title">CSS</span>
+            <div class="current-quiz">
+              <img src="" alt="" class="icon" />
+              <span class="title"></span>
             </div>
-            <p id="quiz-score">8</p>
-            <p class="total-questions">out of 10</p>
+            <span class="score">8</span>
+            <p>out of <span class="total-questions">10</span></p>
           </div>
-          <button id="play-again">Play Again</button>
+          <button class="button restart-quiz">Play Again</button>
         </div>
       </section>
-      <!-- Quiz completed end -->
     </main>
   </body>
 </html>
