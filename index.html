@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light  ">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -12,31 +12,31 @@
 
     <title>Frontend Mentor | Frontend quiz app</title>
   </head>
-  <body data-theme="light">
-    <header class="primary-header flex-center">
-      <div class="current-quiz">
-        <img src="" alt="" class="icon" />
-        <span class="title"></span>
+  <body>
+    <header class="primary-header flex-center padding-sm">
+      <div class="current-quiz flex-center fw-medium hidden" data-topic="Accessibility">
+        <img src="./assets/images/icon-accessibility.svg" alt="" class="icon" />
+        <span>Accessibility</span>
       </div>
 
-      <div class="theme-toggle-container flex-center">
-        <img src="./assets/images/icon-sun-dark.svg" alt="light mode" class="icon-sun" />
-        <label class="switch" for="toggle-button">
-          <input type="checkbox" id="toggle-button" />
+      <div class="theme-toggle-container flex-center align-right">
+        <div class="sun-icon"></div>
+        <label class="toggle-switch">
+          <input type="checkbox" id="toggle-button" aria-label="Toggle light / dark mode" />
           <span class="slider"></span>
         </label>
-        <img src="./assets/images/icon-moon-dark.svg" alt="dark mode" class="icon-moon" />
+        <div class="moon-icon"></div>
       </div>
     </header>
 
     <main>
-      <section class="quiz-topics">
-        <div>
-          <h1 class="title">Welcome to the <span>Frontend Quiz</span></h1>
-          <p class="sub-title">Pick a subject to get started.</p>
+      <section class="quiz-topics padding-lg">
+        <div class="flow-content">
+          <h1 class="title">Welcome to the <span class="fw-medium">Frontend Quiz!</span></h1>
+          <p class="fs-body-sm italic">Pick a subject to get started.</p>
         </div>
 
-        <div class="options">
+        <div class="options grid-gap">
           <button class="button flex-center" data-topic="HTML">
             <img src="./assets/images/icon-html.svg" alt="" class="icon" />
             <span class="button__text">HTML</span>
@@ -59,74 +59,81 @@
         </div>
       </section>
 
-      <section class="quiz-questions">
+      <section class="quiz-questions padding-lg hidden">
         <h2 class="visually-hidden">Quiz questions</h2>
 
-        <div>
-          <p aria-live="polite">Question <span class="question-number">1</span> of <span class="total-questions">10</span></p>
+        <div class="question-container flow-content flow-content--sm">
+          <p aria-live="polite" class="italic text-secondary-clr fs-body-sm">Question <span class="question-number">1</span> of <span class="total-questions">10</span></p>
 
-          <p class="current-question">What does HTML stand for?</p>
+          <p class="current-question fw-bold fs-heading-sm">What does HTML stand for?</p>
 
-          <div class="progress-bar-container">
+          <div class="progress-bar-container flex-center">
             <div class="progress-bar"></div>
           </div>
         </div>
 
-        <form class="answer-choices">
-          <fieldset>
+        <form class="answer-choices grid-gap">
+          <fieldset class="grid-gap">
             <legend class="visually-hidden">Answer Choices</legend>
 
             <label class="button flex-center">
               <input type="radio" name="answer-choice" id="choice-one" />
               <span class="icon">A</span>
-              <span class="text">Hyper Trainer Marking Language</span>
-              <img src="./assets/images/icon-correct.svg" alt="" class="correct-icon" />
-              <img src="./assets/images/icon-incorrect.svg" alt="" class="incorrect-icon" />
+              <span class="text">4.5:1</span>
+              <img src="./assets/images/icon-correct.svg" alt="" class="correct-icon hidden" />
+              <img src="./assets/images/icon-incorrect.svg" alt="" class="incorrect-icon hidden" />
             </label>
 
             <label class="button flex-center">
               <input type="radio" name="answer-choice" id="choice-two" />
               <span class="icon">A</span>
-              <span class="text">Hyper Trainer Marking Language</span>
-              <img src="./assets/images/icon-correct.svg" alt="" class="correct-icon" />
-              <img src="./assets/images/icon-incorrect.svg" alt="" class="incorrect-icon" />
+              <span class="text">4.5:1</span>
+              <img src="./assets/images/icon-correct.svg" alt="" class="correct-icon hidden" />
+              <img src="./assets/images/icon-incorrect.svg" alt="" class="incorrect-icon hidden" />
             </label>
 
             <label class="button flex-center">
               <input type="radio" name="answer-choice" id="choice-three" />
               <span class="icon">A</span>
-              <span class="text">Hyper Trainer Marking Language</span>
-              <img src="./assets/images/icon-correct.svg" alt="" class="correct-icon" />
-              <img src="./assets/images/icon-incorrect.svg" alt="" class="incorrect-icon" />
+              <span class="text">4.5:1</span>
+              <img src="./assets/images/icon-correct.svg" alt="" class="correct-icon hidden" />
+              <img src="./assets/images/icon-incorrect.svg" alt="" class="incorrect-icon hidden" />
             </label>
 
             <label class="button flex-center">
               <input type="radio" name="answer-choice" id="choice-four" />
               <span class="icon">A</span>
-              <span class="text">Hyper Trainer Marking Language</span>
-              <img src="./assets/images/icon-correct.svg" alt="" class="correct-icon" />
-              <img src="./assets/images/icon-incorrect.svg" alt="" class="incorrect-icon" />
+              <span class="text">4.5:1</span>
+              <img src="./assets/images/icon-correct.svg" alt="" class="correct-icon hidden" />
+              <img src="./assets/images/icon-incorrect.svg" alt="" class="incorrect-icon hidden" />
             </label>
           </fieldset>
 
-          <input type="submit" value="Submit Answer" class="button" />
-          <p class="error flex-center" role="alert" aria-live="polite">Please select an answer</p>
+          <input type="submit" value="Submit Answer" class="button button--primary" />
+          <button class="button button--primary hidden" aria-live="polite">Next Question</button>
+
+          <div class="error flex-center justify-center hidden" role="alert" aria-live="polite">
+            <img src="./assets/images/icon-error.svg" alt="" />
+            <p>Please select an answer</p>
+          </div>
         </form>
       </section>
 
-      <section class="quiz-score">
-        <h2 class="title">Quiz Completed <span>You Scored...</span></h2>
+      <section class="quiz-score padding-lg hidden">
+        <h2 class="title">Quiz Completed <span class="fw-medium">You Scored...</span></h2>
 
-        <div>
-          <div class="score-container">
-            <div class="current-quiz">
-              <img src="" alt="" class="icon" />
-              <span class="title"></span>
+        <div class="grid-gap">
+          <div class="score-container text-center">
+            <div class="current-quiz flex-center justify-center fw-medium" data-topic="Accessibility">
+              <img src="./assets/images/icon-accessibility.svg" alt="" class="icon" />
+              <span>Accessibility</span>
             </div>
-            <span class="score">8</span>
-            <p>out of <span class="total-questions">10</span></p>
+
+            <span class="score fs-heading-xlg">8</span>
+
+            <p class="text-secondary-clr">out of <span class="total-questions">10</span></p>
           </div>
-          <button class="button restart-quiz">Play Again</button>
+          <button class="button button--primary restart-quiz">Play Again</button>
         </div>
       </section>
     </main>
