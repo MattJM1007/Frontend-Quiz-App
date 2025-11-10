@@ -422,30 +422,30 @@ fieldset {
   --fg: var(--clr-neutral-100);
 }
 
-.answer-choices .correct {
+.answer-choices label:has(input[type="radio"]:checked).correct {
   border-color: var(--clr-accent-1);
 }
 
-.answer-choices .correct .icon {
+.answer-choices label:has(input[type="radio"]:checked).correct .icon {
   --bg: var(--clr-accent-1);
   --fg: var(--clr-neutral-100);
 }
 
-.answer-choices .correct .correct-icon {
+.answer-choices label:has(input[type="radio"]:checked).correct .correct-icon {
   display: inline-block;
   margin-inline-start: auto;
 }
 
-.answer-choices .incorrect {
+.answer-choices label:has(input[type="radio"]:checked).incorrect {
   border-color: var(--clr-accent-2);
 }
 
-.answer-choices .incorrect .icon {
+.answer-choices label:has(input[type="radio"]:checked).incorrect .icon {
   --bg: var(--clr-accent-2);
   --fg: var(--clr-neutral-100);
 }
 
-.answer-choices .incorrect .incorrect-icon {
+.answer-choices label:has(input[type="radio"]:checked).incorrect .incorrect-icon {
   display: inline-block;
   margin-inline-start: auto;
 }
@@ -519,7 +519,7 @@ html[data-theme="dark"] .moon-icon {
 
 /* Exceptions */
 @media (width>70em) {
-  .quiz-topics :first-child {
+  .quiz-topics > :first-child {
     --flow-spacer: 3rem;
   }
 
