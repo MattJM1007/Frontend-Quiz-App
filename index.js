@@ -101,7 +101,6 @@ function populateQuestionForm(number) {
 
 function checkAnswer(e) {
   e.preventDefault();
-  console.log("sumbitting...");
 
   const userChoice = this.querySelector('input[type="radio"]:checked ~ .text');
 
@@ -134,7 +133,6 @@ function checkAnswer(e) {
 }
 
 function nextQuestion() {
-  console.log("next...");
   answerForm.reset();
 
   if (questionNumber > selectedQuizQuestions.length) {
@@ -160,7 +158,6 @@ function showScore() {
 }
 
 function playAgain() {
-  console.log("again! again!");
   scoreSection.classList.add("hidden");
   mainMenu.classList.remove("hidden");
   currentQuizHeader.forEach((header) => header.classList.add("hidden"));

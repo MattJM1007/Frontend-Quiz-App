@@ -1,27 +1,22 @@
-# Frontend Mentor - Frontend quiz app solution
+# Frontend Quiz App
 
-This is a solution to the [Frontend quiz app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/frontend-quiz-app-BE7xkzXQnU). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
+This app dynamically loads quiz data to test frontend knowledge in 4 key areas: HTML, CSS, JavaScript, and Accessibility.
 
-## Table of contents
+![App Screenshot](./quiz-desktop.png)
 
-- [Overview](#overview)
-  - [The challenge](#the-challenge)
-  - [Screenshot](#screenshot)
-  - [Links](#links)
-- [My process](#my-process)
-  - [Built with](#built-with)
-  - [What I learned](#what-i-learned)
-  - [Continued development](#continued-development)
-  - [Useful resources](#useful-resources)
-- [Author](#author)
-- [Acknowledgments](#acknowledgments)
+[Live Demo](https://mattjm1007.github.io/Frontend-Quiz-App/) · [View Code](https://github.com/MattJM1007/Frontend-Quiz-App)
+
+---
 
 ## Overview
 
-### The challenge
+This app dynamically loads quiz data based on the user-selected topic. Each answer submission shows whether the choice was correct or incorrect, and the user's score is recorded and displayed upon finishing the quiz.
 
-Users should be able to:
+---
 
+## Features
+
+- Change the app's theme between light and dark
 - Select a quiz subject
 - Select a single answer from each question from a choice of four
 - See an error message when trying to submit an answer without making a selection
@@ -29,41 +24,57 @@ Users should be able to:
 - Move on to the next question after seeing the question result
 - See a completed state with the score after the final question
 - Play again to choose another subject
-- View the optimal layout for the interface depending on their device's screen size
-- See hover and focus states for all interactive elements on the page
-- Navigate the entire app only using their keyboard
-- **Bonus**: Change the app's theme between light and dark
 
-### Screenshot
+---
 
-![](./screenshot.png)
+## Technical Highlights
 
-### Links
+**Theme Switcher with System Preference**
 
-- Solution URL: [Add solution URL here](https://github.com/MattJM1007/Frontend-Quiz-App)
-- Live Site URL: [Add live site URL here](https://mattjm1007.github.io/Frontend-Quiz-App/)
+The theme switcher checks for a saved preference in localStorage first, then falls back to the user's system preference using `window.matchMedia`. This means the app respects the user's OS-level dark/light mode setting automatically. The active theme is stored on the `<html>` element as a `data-theme` attribute, and the CSS `light-dark()` function handles color switching without needing duplicate property declarations.
 
-## My process
+**Answer State Driven by CSS**
 
-### Built with
+Rather than toggling classes with JavaScript to style correct and incorrect answers, the answer state is driven by `:has()` and sibling selectors in CSS. JavaScript adds a single class to the selected answer, and CSS handles all the visual feedback from there — including highlighting the correct answer when a wrong one is chosen.
 
-- Semantic HTML5 markup
-- CSS custom properties
-- Flexbox
-- JQuery
+---
 
-### What I learned
+## Tech Stack
 
-How to use JQuery, work with json, toggle light/dark modes, display correct/incorrect answers
+- Semantic HTML
+- CSS (custom properties, `light-dark()`, `:has()`, sibling selectors)
+- JavaScript (ES6+, `localStorage`, `fetch`, async/await)
 
-### Continued development
+---
 
-Want to get better with Jquerry and maybe add more to this app later on down the line!
+## Getting Started
 
-### Useful resources
+```bash
+git clone https://github.com/MattJM1007/Frontend-Quiz-App
+```
 
-- [CSS Toggle Switch](https://www.w3schools.com/howto/howto_css_switch.asp) - This helped me make the toggle switch for light and dark mode
+This is a vanilla JS project with no build step. Clone the repo and open `index.html` in your browser.
 
-## Author
+---
 
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/MattJM1007)
+## Challenges & What I Learned
+
+**Managing quiz state across multiple views**
+
+The app has several distinct states — topic selection, active question, answer submitted, and results — and keeping track of what should be shown or hidden at each stage was the most complex part. I learned to keep state in JavaScript variables rather than reading it back from the DOM, which made the logic easier to reason about and less error-prone.
+
+**Styling answer feedback without JavaScript-heavy logic**
+
+I wanted correct and incorrect answers to be visually distinct after submission, including showing the correct answer when the user picks the wrong one. Reaching for CSS `:has()` and sibling selectors — the same pattern I used in other projects — let me keep the JavaScript focused on logic and let CSS handle the visual output.
+
+---
+
+## What I'd Improve
+
+**Improved state management**
+
+With this quiz having multiple states, I would move this to a React app where I could dynamically update the state variable and display the correct content. This would make the logic easier to reason about and less error-prone.
+
+**Break up large functions**
+
+Some functions handle more than one responsibility. For example, the answer submission handler both validates the selection and updates the UI. I would split these into smaller, single-purpose functions to make the code easier to test and maintain.
